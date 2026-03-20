@@ -161,7 +161,9 @@ open class JXSegmentedView: UIView, JXSegmentedViewRTLCompatible {
             contentScrollView?.removeObserver(self, forKeyPath: "contentOffset")
         }
         didSet {
+#if !os(tvOS)
             contentScrollView?.scrollsToTop = false
+#endif
             contentScrollView?.addObserver(self, forKeyPath: "contentOffset", options: .new, context: nil)
         }
     }
@@ -224,7 +226,9 @@ open class JXSegmentedView: UIView, JXSegmentedViewRTLCompatible {
         collectionView.backgroundColor = .clear
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
+#if !os(tvOS)
         collectionView.scrollsToTop = false
+#endif
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "JXSegmentedViewInnerEmptyCell")
         collectionView.dataSource = self
         collectionView.delegate = self

@@ -62,7 +62,7 @@ public class JXSegmentedViewTool {
 extension JXSegmentedViewTool {
     public static func interpolateThemeColor(from: UIColor, to: UIColor, percent: CGFloat) -> UIColor {
         
-        if #available(iOS 13.0, *) {
+        if #available(iOS 13.0, tvOS 13.0, *) {
             return UIColor { (traitCollection) -> UIColor in
                 let resolvedFrom = from.resolvedColor(with: traitCollection)
                 let resolvedTo = to.resolvedColor(with: traitCollection)

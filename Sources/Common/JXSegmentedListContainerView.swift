@@ -128,10 +128,12 @@ open class JXSegmentedListContainerView: UIView, JXSegmentedViewListContainer, J
                 scrollView = UIScrollView.init()
             }
             scrollView.delegate = self
-            scrollView.isPagingEnabled = true
             scrollView.showsVerticalScrollIndicator = false
             scrollView.showsHorizontalScrollIndicator = false
+#if !os(tvOS)
             scrollView.scrollsToTop = false
+            scrollView.isPagingEnabled = true
+#endif
             scrollView.bounces = false
             if #available(iOS 11.0, *) {
                 scrollView.contentInsetAdjustmentBehavior = .never
@@ -141,10 +143,12 @@ open class JXSegmentedListContainerView: UIView, JXSegmentedViewListContainer, J
             }
             containerVC.view.addSubview(scrollView)
         }else if type == .collectionView {
-            collectionView.isPagingEnabled = true
             collectionView.showsHorizontalScrollIndicator = false
             collectionView.showsVerticalScrollIndicator = false
-            collectionView.scrollsToTop = false
+#if !os(tvOS)
+            collectionView.isPagingEnabled = true
+        collectionView.scrollsToTop = false
+#endif
             collectionView.bounces = false
             collectionView.dataSource = self
             collectionView.delegate = self

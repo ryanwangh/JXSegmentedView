@@ -6,11 +6,12 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/pujiaxin33/JXSegmentedView"
   s.license      = "MIT"
   s.author       = { "pujiaxin33" => "317437084@qq.com" }
-  s.platform     = :ios, "9.0"
   s.swift_version = "5.0"
   s.source       = { :git => "https://github.com/pujiaxin33/JXSegmentedView.git", :tag => "#{s.version}" }
   s.framework    = "UIKit"
   s.source_files  = "Sources", "Sources/**/*.{swift}"
   s.resource_bundles = {"JXSegmentedView" => ["Sources/PrivacyInfo.xcprivacy"]}
   s.requires_arc = true
+  s.ios.deployment_target = '12.0'
+  s.tvos.deployment_target = '12.0'
 end
